@@ -18,7 +18,7 @@ class _TempMerzCollectionView(merz.MerzCollectionView, ezui.ParserMixIn):
             sizeStyle=None, # only for constructor compatibility
             descriptionData={}
         ):
-        tools.assignIdentifier(
+        ezui.tools.assignIdentifier(
             item=self,
             identifier=identifier,
             container=container
