@@ -2,7 +2,7 @@
 Set different widths for segments.
 
 Note: The segmentDescriptions created from the text
-description fo not merge with the segmentDescriptions
+description do not merge with the segmentDescriptions
 given in the descriptionData, so the segment contents
 have to be redefined.
 
