@@ -66,7 +66,7 @@ class DemoController(Subscriber, ezui.WindowController):
             size=(700, 500),
             minSize=(400, 200),
         )
-        self.w.setItemValue("textField", "iABC xyz 123")
+        self.w.setItemValue("textField", "ABC xyz 123")
         self.controlsStackCallback(None)
         self.displaySettingsButtonCallback(None)
         self.textFieldCallback(None)
