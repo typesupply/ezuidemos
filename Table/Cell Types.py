@@ -2,7 +2,7 @@
 Use complex cell types in a table.
 
 Relevant Documentation:
-- Table: https://typesupply.github.io/ezui/items.html#ezui.Table
+    - Table: https://typesupply.github.io/ezui/items.html#ezui.Table
 """
 
 import ezui

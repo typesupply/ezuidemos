@@ -2,8 +2,8 @@
 Set the font in a field to the system's monospaced font.
 
 Relevant Documentation:
-- TextField.setFont: https://typesupply.github.io/ezui/items.html#ezui.TextField.setFont
-- makeFont: https://typesupply.github.io/ezui/tools.html#ezui.makeFont
+    - TextField.setFont: https://typesupply.github.io/ezui/items.html#ezui.TextField.setFont
+    - makeFont: https://typesupply.github.io/ezui/tools.html#ezui.makeFont
 """
 
 import ezui

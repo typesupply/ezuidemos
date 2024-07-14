@@ -2,8 +2,8 @@
 Make a WindowController that is also a Subscriber.
 
 Relevant Documentation:
-- subscriber: https://robofont.com/documentation/reference/api/mojo/mojo-subscriber/
-- WindowController: https://typesupply.github.io/ezui/controllers.html#windowcontroller
+    - subscriber: https://robofont.com/documentation/reference/api/mojo/mojo-subscriber/
+    - WindowController: https://typesupply.github.io/ezui/controllers.html#windowcontroller
 """
 
 import ezui

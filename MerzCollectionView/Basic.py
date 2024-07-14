@@ -1,38 +1,13 @@
 """
+Put simple items into a MerzCollectionView.
+
 Relevant Documentation:
+
+    - MerzCollectionView: https://typesupply.github.io/merz/views/merzCollectionView.html
 """
 
 import ezui
 import merz
-
-class _TempMerzCollectionView(merz.MerzCollectionView, ezui.ParserMixIn):
-
-    def __init__(self,
-            backgroundColor=None,
-            hasVerticalScroller=True,
-            autohidesScrollers=True,
-            delegate=None,
-            identifier=None,
-            container=None,
-            controller=None,
-            sizeStyle=None, # only for constructor compatibility
-            descriptionData={}
-        ):
-        ezui.tools.assignIdentifier(
-            item=self,
-            identifier=identifier,
-            container=container
-        )
-        super().__init__(
-            "auto",
-            backgroundColor=backgroundColor,
-            hasVerticalScroller=hasVerticalScroller,
-            autohidesScrollers=autohidesScrollers,
-            delegate=delegate
-        )
-
-if "MerzCollectionView" not in ezui.knownItemTypes():
-    ezui.registerClass("MerzCollectionView", _TempMerzCollectionView)
 
 itemHeight = 100
 
