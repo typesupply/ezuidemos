@@ -66,13 +66,21 @@ class DemoController(Subscriber, ezui.WindowController):
             size=(700, 500),
             minSize=(400, 200),
         )
-        self.w.setItemValue("textField", "ABC xyz 123")
+        self.w.setItemValue("textField", "iABC xyz 123")
         self.controlsStackCallback(None)
         self.displaySettingsButtonCallback(None)
         self.textFieldCallback(None)
 
     def started(self):
         self.w.open()
+
+    def textFieldCallback(self, sender):
+        self.unsubscribeFromGlyphs()
+        self.glyphNames = self.w.getItemValue("textField")
+        font = self.font
+        self.glyphs = [font[glyphName] for glyphName in self.glyphNames]
+        self.subscribeToGlyphs()
+        self.populateItems()
 
     def controlsStackCallback(self, sender):
         collectionView = self.w.getItem("collectionView")
@@ -82,19 +90,19 @@ class DemoController(Subscriber, ezui.WindowController):
         alignment = ("left", "center", "right")[values["alignmentSegmentButton"]]
         scale = pointSize / self.font.info.unitsPerEm
         lineHeight = self.font.info.unitsPerEm * lineHeight * scale
+        inset = pointSize * 0.2
+        minInset = 10
+        maxInset = 30
+        if inset < minInset:
+            inset = minInset
+        elif inset > maxInset:
+            inset = maxInset
         collectionView.setLayoutProperties(
             scale=scale,
             lineHeight=lineHeight,
-            alignment=alignment
+            alignment=alignment,
+            inset=(inset, inset)
         )
-
-    def textFieldCallback(self, sender):
-        self.unsubscribeFromGlyphs()
-        self.glyphNames = self.w.getItemValue("textField")
-        font = self.font
-        self.glyphs = [font[glyphName] for glyphName in self.glyphNames]
-        self.subscribeToGlyphs()
-        self.populateItems()
 
     def displaySettingsButtonCallback(self, sender):
         values = self.w.getItemValue("displaySettingsButton")
@@ -115,33 +123,28 @@ class DemoController(Subscriber, ezui.WindowController):
         collectionView = self.w.getItem("collectionView")
         font = self.font
         glyphs = self.glyphs
-        existingItems = collectionView.get()
         items = []
-        for glyphName in self.glyphNames:
-            if existingItems:
-                item = existingItems.pop(0)
-            else:
-                item = collectionView.makeItem()
-                item.getCALayer().setGeometryFlipped_(True) # XXX Ugh. Yell at Tal about this.
-                glyphContainer = merz.Base()
-                item.appendLayer("glyphContainer", glyphContainer)
-                glyphContainer.appendPathSublayer(
-                    name="glyphFill",
-                    fillColor=(0, 0, 0, 1),
-                    visible=True
-                )
-                glyphContainer.appendPathSublayer(
-                    name="glyphStroke",
-                    fillColor=None,
-                    strokeColor=(1, 0, 0, 1),
-                    strokeWidth=1,
-                    visible=True
-                )
-                glyphContainer.appendBaseSublayer(
-                    name="glyphPoints",
-                    visible=True
-                )
-            glyph = font[glyphName]
+        for glyph in self.glyphs:
+            item = collectionView.makeItem()
+            item.getCALayer().setGeometryFlipped_(True) # XXX Ugh. Yell at Tal about this.
+            glyphContainer = merz.Base()
+            item.appendLayer("glyphContainer", glyphContainer)
+            glyphContainer.appendPathSublayer(
+                name="glyphFill",
+                fillColor=(0, 0, 0, 1),
+                visible=True
+            )
+            glyphContainer.appendPathSublayer(
+                name="glyphStroke",
+                fillColor=None,
+                strokeColor=(1, 0, 0, 1),
+                strokeWidth=1,
+                visible=True
+            )
+            glyphContainer.appendBaseSublayer(
+                name="glyphPoints",
+                visible=True
+            )
             with item.propertyGroup():
                 item.setWidth(glyph.width)
                 item.setHeight(font.info.unitsPerEm)
