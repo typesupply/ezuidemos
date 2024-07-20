@@ -13,7 +13,9 @@ numbers = list(range(-10, 11))
 
 def colorNumberFormatter(attributes):
     value = attributes["value"]
-    if value < 0:
+    if value is None:
+        color = (1, 1, 0, 1)
+    elif value < 0:
         color = (1, 0, 0, 1)
     elif value > 0:
         color = (0, 1, 0, 1)
