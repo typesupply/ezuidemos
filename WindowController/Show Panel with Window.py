@@ -16,7 +16,8 @@ class DemoWindow(ezui.WindowController):
     def build(self):
         self.panel = None
         content = """
-        <waiting> @label
+        main: no @mainLabel
+        key: no @keyLabel
         """
         descriptionData = dict()
         self.w = ezui.EZWindow(
@@ -27,6 +28,8 @@ class DemoWindow(ezui.WindowController):
         )
         self.w.bind("became main", self.windowBecameMainCallback)
         self.w.bind("resigned main", self.windowResignedMainCallback)
+        self.w.bind("became key", self.windowBecameKeyCallback)
+        self.w.bind("resigned key", self.windowResignedKeyCallback)
 
     def started(self):
         self.w.open()
@@ -34,19 +37,31 @@ class DemoWindow(ezui.WindowController):
     def destroy(self):
         self.w.unbind("became main", self.windowBecameMainCallback)
         self.w.unbind("resigned main", self.windowResignedMainCallback)
+        self.w.unbind("became key", self.windowBecameKeyCallback)
+        self.w.unbind("resigned key", self.windowResignedKeyCallback)
         if self.panel is not None:
             if self.panel.w.isVisible():
                 self.panel.w.close()
             self.panel = None
 
     def windowBecameMainCallback(self, sender):
-        self.w.setItemValue("label", "became main")
+        self.w.setItemValue("mainLabel", "main: yes")
         if self.panel is None:
             self.panel = DemoPanel()
         self.panel.w.show()
 
     def windowResignedMainCallback(self, sender):
-        self.w.setItemValue("label", "resigned main")
+        self.w.setItemValue("mainLabel", "main: no")
+        self.panel.w.hide()
+
+    def windowBecameKeyCallback(self, sender):
+        self.w.setItemValue("keyLabel", "key: yes")
+        if self.panel is None:
+            self.panel = DemoPanel()
+        self.panel.w.show()
+
+    def windowResignedKeyCallback(self, sender):
+        self.w.setItemValue("keyLabel", "key: no")
         self.panel.w.hide()
 
 
@@ -57,7 +72,7 @@ class DemoPanel(ezui.WindowController):
         [_ A field that can become key. _] @field
         ---X--- @slider
         ---
-        <waiting> @label
+        key: no @keyLabel
         """
         descriptionData = dict()
         self.w = ezui.EZPanel(
@@ -78,10 +93,10 @@ class DemoPanel(ezui.WindowController):
         self.w.unbind("resigned key", self.windowResignedKeyCallback)
 
     def windowBecameKeyCallback(self, sender):
-        self.w.setItemValue("label", "became key")
+        self.w.setItemValue("keyLabel", "key: yes")
 
     def windowResignedKeyCallback(self, sender):
-        self.w.setItemValue("label", "resigned key")
+        self.w.setItemValue("keyLabel", "key: no")
 
 
 DemoWindow()
