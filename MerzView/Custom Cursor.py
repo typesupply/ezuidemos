@@ -9,7 +9,7 @@ import AppKit
 import merz
 import ezui
 
-size = 15
+size = 50
 black = AppKit.NSColor.blackColor()
 white = AppKit.NSColor.whiteColor()
 oval = AppKit.NSBezierPath.bezierPathWithOvalInRect_(
@@ -57,12 +57,10 @@ class Demo(ezui.WindowController):
     # Delegate Methods
 
     def mouseEntered(self, sender, event):
-        self._previousCursor = AppKit.NSCursor.currentCursor()
         demoCursor.set()
 
     def mouseExited(self, sender, event):
-        self._previousCursor.set()
-        demoCursor.set()
+        demoCursor.pop()
 
 
 Demo()
