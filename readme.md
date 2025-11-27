@@ -11,8 +11,8 @@ A very basic, unoptimized typesetter.
 
 Relevant Documentation:
 
-    - MerzCollectionView: https://typesupply.github.io/merz/views/merzCollectionView.html
-    - Subscriber: https://robofont.com/documentation/reference/api/mojo/mojo-subscriber/
+- MerzCollectionView: https://typesupply.github.io/merz/views/merzCollectionView.html
+- Subscriber: https://robofont.com/documentation/reference/api/mojo/mojo-subscriber/
 
 ![Basic Typesetter](_images/Basic%20Typesetter.png)
 
@@ -23,7 +23,7 @@ Put simple items into a MerzCollectionView.
 
 Relevant Documentation:
 
-    - MerzCollectionView: https://typesupply.github.io/merz/views/merzCollectionView.html
+- MerzCollectionView: https://typesupply.github.io/merz/views/merzCollectionView.html
 
 ![Basic](_images/Basic.png)
 
@@ -33,7 +33,8 @@ Relevant Documentation:
 Set a cursor for a MerzView.
 
 Relevant Documentation:
-    - MerzView: https://typesupply.github.io/merz/views/merzView.html
+
+- MerzView: https://typesupply.github.io/merz/views/merzView.html
 
 ![Custom Cursor](_images/Custom%20Cursor.png)
 
@@ -43,7 +44,8 @@ Relevant Documentation:
 Allow a user to move layers around.
 
 Relevant Documentation:
-    - MerzView: https://typesupply.github.io/merz/views/merzView.html
+
+- MerzView: https://typesupply.github.io/merz/views/merzView.html
 
 ![Interactive Layers](_images/Interactive%20Layers.png)
 
@@ -56,9 +58,10 @@ will be used as the focal point so that the content
 at that point will remain visible.
 
 Relevant Documentation:
-    - ScrollingMerzView: https://typesupply.github.io/merz/views/merzView.html#scrollingmerzview
-    - NSEvent.magnification: https://developer.apple.com/documentation/appkit/nsevent/1531642-magnification?language=objc
-    - NSEvent.phase: https://developer.apple.com/documentation/appkit/nsevent/1533550-phase?language=objc
+
+- ScrollingMerzView: https://typesupply.github.io/merz/views/merzView.html#scrollingmerzview
+- NSEvent.magnification: https://developer.apple.com/documentation/appkit/nsevent/1531642-magnification?language=objc
+- NSEvent.phase: https://developer.apple.com/documentation/appkit/nsevent/1533550-phase?language=objc
 
 ![Magnify Event With Focal Point](_images/Magnify%20Event%20With%20Focal%20Point.png)
 
@@ -71,8 +74,9 @@ content at the center point of the event. That is a more
 complex operation that will be shown in a different demo.
 
 Relevant Documentation:
-    - MerzView: https://typesupply.github.io/merz/views/merzView.html
-    - NSEvent.magnification: https://developer.apple.com/documentation/appkit/nsevent/1531642-magnification?language=objc
+
+- MerzView: https://typesupply.github.io/merz/views/merzView.html
+- NSEvent.magnification: https://developer.apple.com/documentation/appkit/nsevent/1531642-magnification?language=objc
 
 ![Magnify Event](_images/Magnify%20Event.png)
 
@@ -82,7 +86,8 @@ Relevant Documentation:
 Open a popover for a specific button.
 
 Relevant Documentation:
-    - Popover: https://typesupply.github.io/ezui/windows.html#ezpopover
+
+- Popover: https://typesupply.github.io/ezui/windows.html#ezpopover
 
 ![popover at button](_images/popover%20at%20button.png)
 
@@ -97,7 +102,8 @@ given in the descriptionData, so the segment contents
 have to be redefined.
 
 Relevant Documentation:
-    - SegmentButton: https://typesupply.github.io/ezui/items.html#segmentbutton
+
+- SegmentButton: https://typesupply.github.io/ezui/items.html#segmentbutton
 
 ![Varied Segment Widths](_images/Varied%20Segment%20Widths.png)
 
@@ -121,7 +127,8 @@ Discord discussion: https://discord.com/channels/1052516637489766411/10761547723
 Use complex cell types in a table.
 
 Relevant Documentation:
-    - Table: https://typesupply.github.io/ezui/items.html#ezui.Table
+
+- Table: https://typesupply.github.io/ezui/items.html#ezui.Table
 
 ![Cell Types](_images/Cell%20Types.png)
 
@@ -131,6 +138,7 @@ Relevant Documentation:
 Apply string formatting to values in a table.
 
 Relevant Documentation:
+
 - Table: https://typesupply.github.io/ezui/items.html#ezui.Table
 - Value Conversion and Formatting: https://typesupply.github.io/ezui/tools.html#value-conversion-and-formatting
 
@@ -142,8 +150,9 @@ Relevant Documentation:
 Set the font in a field to the system's monospaced font.
 
 Relevant Documentation:
-    - TextField.setFont: https://typesupply.github.io/ezui/items.html#ezui.TextField.setFont
-    - makeFont: https://typesupply.github.io/ezui/tools.html#ezui.makeFont
+
+- TextField.setFont: https://typesupply.github.io/ezui/items.html#ezui.TextField.setFont
+- makeFont: https://typesupply.github.io/ezui/tools.html#ezui.makeFont
 
 ![Monospaced Font](_images/Monospaced%20Font.png)
 
@@ -154,7 +163,8 @@ Make a WindowController that communicates with
 multiple glyph editor subscribers.
 
 Relevant Documentation:
-    - Subscriber: https://robofont.com/documentation/reference/api/mojo/mojo-subscriber/
+
+- Subscriber: https://robofont.com/documentation/reference/api/mojo/mojo-subscriber/
 
 ![Glyph Editor Controller Window](_images/Glyph%20Editor%20Controller%20Window.png)
 
@@ -167,6 +177,7 @@ This is done by using the vanilla window bindings
 that aren't (yet?) exposed in ezui.
 
 Relevant Documentation:
+
 - EZWindow and EZPanel: https://typesupply.github.io/ezui/windows.html
 - Window.bind: https://vanilla.robotools.dev/en/latest/objects/Window.html#vanilla.Window.bind
 
@@ -178,8 +189,9 @@ Relevant Documentation:
 Make a WindowController that is also a Subscriber.
 
 Relevant Documentation:
-    - subscriber: https://robofont.com/documentation/reference/api/mojo/mojo-subscriber/
-    - WindowController: https://typesupply.github.io/ezui/controllers.html#windowcontroller
+
+- subscriber: https://robofont.com/documentation/reference/api/mojo/mojo-subscriber/
+- WindowController: https://typesupply.github.io/ezui/controllers.html#windowcontroller
 
 ![Subscriber Window](_images/Subscriber%20Window.png)
 
@@ -191,7 +203,8 @@ when the window is selected, deselected, closed,
 resized or moved.
 
 Relevant Documentation:
-    - WindowController: https://typesupply.github.io/ezui/controllers.html#windowcontroller
+
+- WindowController: https://typesupply.github.io/ezui/controllers.html#windowcontroller
 
 ![Window Notifications](_images/Window%20Notifications.png)
 
